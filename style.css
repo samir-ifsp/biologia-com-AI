@@ -1,0 +1,201 @@
+/* Reset e Configurações Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Fonte sem serifa leve para o texto corrido */
+    font-family: 'Open Sans', Arial, sans-serif;
+    line-height: 1.8;
+    background-color: #faf9f6; /* Fundo off-white estilo parede de museu */
+    color: #2b2b2b; /* Quase preto, para não cansar a vista */
+}
+
+/* Tipografia de Títulos */
+h1, h2, h3, .logo {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+}
+
+/* Container Principal */
+.container {
+    width: 85%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Cabeçalho Fixo e Transparente no Topo */
+.cabecalho {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 25px 0;
+    transition: all 0.4s ease;
+    background-color: transparent;
+}
+
+/* Classe adicionada via JS ao rolar a página */
+.cabecalho.scrolled {
+    background-color: rgba(26, 26, 26, 0.95);
+    padding: 15px 0;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-menu li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    opacity: 0.6;
+}
+
+/* Hero Section - O impacto visual inicial */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.3)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 60px;
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Artigos e Seções */
+.conteudo-artigo {
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e5e5e5; /* Divisória sutil em vez de caixas fechadas */
+    scroll-margin-top: 100px;
+}
+
+/* Remove a linha do último artigo */
+.conteudo-artigo:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-align: left; /* Textos justificados não são mais usados em design moderno/museu */
+    max-width: 800px;
+}
+
+/* Imagens estilo Exposição */
+.imagem-museu {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.imagem-museu img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Sombra elegante */
+}
+
+.imagem-museu figcaption {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Layout de Grid para textos paralelos */
+.grid-textos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+/* Seção de Créditos */
+.creditos {
+    display: flex;
+    gap: 60px;
+    margin-top: 30px;
+}
+
+.coluna-credito h3 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #666;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.coluna-credito ul {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.coluna-credito ul li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .grid-textos, .creditos { grid-template-columns: 1fr; flex-direction: column; gap: 20px; }
+    .nav-menu { display: none; } /* Em um site real, aqui entraria um menu hamburguer */
+    h2 { font-size: 2rem; }
+}
